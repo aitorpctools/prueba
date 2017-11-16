@@ -29,15 +29,20 @@ pipeline {
 //               input "Que quieres comer?"
 
 exit 1
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
 
-                   junit '**/target/surefire-reports/TEST-*.xml'
                   archive 'target/*.jar'
+
             }
         }
     }
+
+        post {
+            always {
+                echo 'Deploying....'
+
+                   junit '**/target/surefire-reports/TEST-*.xml'
+            }
+        }
+
+    
 }
