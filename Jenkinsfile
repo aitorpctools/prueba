@@ -28,37 +28,41 @@ pipeline {
 
 //               input "Que quieres comer?"
 
-exit 1
+                  exit 1
 
-                  archive 'target/*.jar'
+   //               archive 'target/*.jar'
 
             }
         }
     }
 
-        post {
-            always {
-                echo 'Deploying....'
+     post {
+         always {
+             echo 'Deploying....'
 
-                   junit '**/target/surefire-reports/TEST-*.xml'
-            }
+          //      junit '**/target/surefire-reports/TEST-*.xml'
+         }
 
-            failure {
+         failure {
 
-               mail to: 'elenanp@meta4.com;aitorg@meta4.com',
-               subject: "La has liado en el Pipeline: ${currentBuild.fullDisplayName}",
-               body: "Que tienes muñones en vez de manos, vete a ${env.BUILD_URL}" 
-            }
+             echo 'Mail cuando da error....'
 
-            changed {
+            mail to: 'elenanp@meta4.com;aitorg@meta4.com',
+            subject: "La has liado en el Pipeline: ${currentBuild.fullDisplayName}",
+            body: "Que tienes muñones en vez de manos, vete a ${env.BUILD_URL}" 
+         }
 
-               mail to: 'elenanp@meta4.com;aitorg@meta4.com',
-               subject: "La has liado pero no siempre en el Pipeline: ${currentBuild.fullDisplayName}",
-               body: "Que se puede hacer?, vete a ${env.BUILD_URL}" 
+         changed {
 
-            }
+             echo 'Mail cuando cambia estado....'
 
-        }
+            mail to: 'elenanp@meta4.com;aitorg@meta4.com',
+            subject: "La has liado pero no siempre en el Pipeline: ${currentBuild.fullDisplayName}",
+            body: "Que se puede hacer?, vete a ${env.BUILD_URL}" 
+
+         }
+
+     }
 
 
 }
