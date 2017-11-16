@@ -42,7 +42,23 @@ exit 1
 
                    junit '**/target/surefire-reports/TEST-*.xml'
             }
+
+            failure {
+
+               mail to: 'elenanp@meta4.com;aitorg@meta4.com',
+               subject: "La has liado en el Pipeline: ${currentBuild.fullDisplayName}",
+               body: "Que tienes muñones en vez de manos, vete a ${env.BUILD_URL}" 
+            }
+
+            changed {
+
+               mail to: 'elenanp@meta4.com;aitorg@meta4.com',
+               subject: "La has liado pero no siempre en el Pipeline: ${currentBuild.fullDisplayName}",
+               body: "Que se puede hacer?, vete a ${env.BUILD_URL}" 
+
+            }
+
         }
 
-    
+
 }
