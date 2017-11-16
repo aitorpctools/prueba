@@ -1,11 +1,10 @@
 pipeline {
     agent any
 
-    stages {
-
-    def mvnHome
-    
+    stages {   
         stage('Build') {
+
+def mvnHome
             steps {
                 echo 'Building..'
             }
