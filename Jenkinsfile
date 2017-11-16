@@ -2,6 +2,9 @@ pipeline {
     agent any
 
     stages {
+
+    def mvnHome
+    
         stage('Build') {
             steps {
                 echo 'Building..'
