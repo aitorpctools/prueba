@@ -41,6 +41,8 @@ pipeline {
              echo 'Deploying....'
 
           //      junit '**/target/surefire-reports/TEST-*.xml'
+
+          echo "La duración del job '${JOB_NAME}' ha sido $(currentBuild.durationString)"
          }
 
          failure {
