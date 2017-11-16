@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo 'Testing..'
 
-                       env.JAVA_HOME = "${tool 'JDK8'}"
+        //               env.JAVA_HOME = "${tool 'JDK8'}"
        //env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
       // Run the maven build
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
