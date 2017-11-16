@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    enviroment {
+    environment {
       mvnHome  = tool 'M3'
     }
 
