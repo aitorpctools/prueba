@@ -1,11 +1,13 @@
 pipeline {
     agent any
 
+    enviroment {
+      mvnHome  = tool 'M3'
+    }
+
     stages {   
         stage('Build') {
-
-def mvnHome
-            steps {
+           steps {
                 echo 'Building..'
             }
         }
