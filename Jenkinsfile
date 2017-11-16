@@ -26,8 +26,9 @@ pipeline {
             steps {
                 echo 'Esperando..'
 
-               input "Que quieres comer?"
+//               input "Que quieres comer?"
 
+exit 1
             }
         }
         stage('Deploy') {
