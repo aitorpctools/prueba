@@ -42,7 +42,7 @@ pipeline {
 
           //      junit '**/target/surefire-reports/TEST-*.xml'
 
-          echo "La duracion del job '${JOB_NAME}' ha sido ${currentBuild.duration}"
+          echo "La duracion del job '${JOB_NAME}' ha sido ${currentBuild.duration} ms"
          }
 
          failure {
